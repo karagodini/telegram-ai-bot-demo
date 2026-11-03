@@ -1,0 +1,41 @@
+[project]
+name = "telegram-ai-bot-demo"
+version = "1.0.0"
+description = "Telegram-бот с AI-консультантом для бизнеса. Портфолио-демо."
+readme = "README.md"
+requires-python = ">=3.11"
+license = { text = "MIT" }
+dependencies = [
+    "aiogram>=3.13,<4",
+    "openai>=1.40",
+    "pydantic>=2.7",
+    "pydantic-settings>=2.4",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8.0",
+    "pytest-asyncio>=0.24",
+    "ruff>=0.7",
+]
+
+[tool.pytest.ini_options]
+asyncio_mode = "auto"
+asyncio_default_fixture_loop_scope = "function"
+testpaths = ["tests"]
+
+[tool.ruff]
+target-version = "py311"
+line-length = 100
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B", "SIM", "RUF"]
+# Русский текст в строках, докстрингах и комментариях — норма для этого бота.
+ignore = ["RUF001", "RUF002", "RUF003"]
+
+[tool.ruff.lint.isort]
+known-first-party = ["bot"]
+
+[tool.ruff.format]
+quote-style = "double"
+line-ending = "lf"

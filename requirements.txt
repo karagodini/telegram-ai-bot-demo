@@ -1,0 +1,4 @@
+aiogram>=3.13,<4
+openai>=1.40
+pydantic>=2.7
+pydantic-settings>=2.4
